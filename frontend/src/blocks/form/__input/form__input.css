@@ -1,0 +1,21 @@
+.form__input {
+    min-width: 100%;
+    color: #fff;
+    background-color: unset;
+    border: 0px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding: 14px 0px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    transition: .5s;
+}
+.form__input:hover {
+    border-bottom: 1px solid rgba(255,255,255,1);
+}
+.form__input:last-child {
+    margin-top:24px;
+}
+.form__input::placeholder {
+    color: #CCC;
+}

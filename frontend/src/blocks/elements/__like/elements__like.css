@@ -1,0 +1,8 @@
+.elements__like {
+    font-size: 13px;
+    line-height: 15px;
+    color: #000;
+    text-align: center;
+    margin-top: 2px;
+    grid-area: counter;
+}

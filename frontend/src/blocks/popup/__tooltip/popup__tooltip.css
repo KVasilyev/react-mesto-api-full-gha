@@ -1,0 +1,9 @@
+.popup__tooltip .popup__container {
+    text-align: center;
+    padding: 48px 36px;
+}
+
+.popup__tooltip .popup__title {
+    margin-bottom: 0px;
+    margin-top: 24px;
+}

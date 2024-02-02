@@ -1,0 +1,6 @@
+.popup__container_image {
+    padding: 8px;
+    max-width: fit-content;
+    max-height: fit-content;
+    background-color: unset;
+  }

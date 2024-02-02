@@ -1,0 +1,22 @@
+.header__menu-button {
+    align-self: end;
+    background-image: url(../../../images/open-menu-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    min-width: 24px;
+    min-height: 24px;
+    border: 0px;
+    background-color: unset;
+    transition: .5s;
+    display: none;
+}
+.header__menu-button:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .header__menu-button {
+        display: block;
+      }
+}

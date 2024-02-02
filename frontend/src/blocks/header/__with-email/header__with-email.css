@@ -1,0 +1,4 @@
+.header__with-email {
+    display: flex;
+    gap:32px;
+}

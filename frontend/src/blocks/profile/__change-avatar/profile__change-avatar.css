@@ -1,0 +1,26 @@
+.profile__change-avatar {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    position: relative;
+}
+.profile__change-avatar:before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    min-width: 100%;
+    min-height: 100%;
+    left:0;
+    top:0;
+    background-image: url(../../../images/button-edit-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 26px;
+    opacity: 0;
+    transition: .3s;   
+}
+.profile__change-avatar:hover:before {
+    opacity: 1;
+    
+}

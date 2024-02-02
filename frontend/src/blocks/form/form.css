@@ -1,0 +1,11 @@
+.form {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 358px;
+    text-align: center;
+    min-height: calc(100vh - 120px);
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    padding: 60px 0px 80px 0px;
+    
+}
