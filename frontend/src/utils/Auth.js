@@ -55,7 +55,7 @@ class Auth {
 
 // Auth
 const auth = new Auth({
-    baseUrl: 'api.vasilyev.nomoredomainsmonster.ru',
+    baseUrl: 'https://api.vasilyev.nomoredomainsmonster.ru',
     headers: {
       "Content-Type": "application/json" 
     }
