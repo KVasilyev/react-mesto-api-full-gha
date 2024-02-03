@@ -14,7 +14,7 @@ class Api {
     getMyInfo(token) {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
             }
         })
         .then(this._checkResponse)
@@ -26,7 +26,7 @@ class Api {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
                 name: data.name,
@@ -42,7 +42,7 @@ class Api {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
                 avatar: data.avatar,
@@ -56,7 +56,7 @@ class Api {
     getCards(token) {
         return fetch(`${this._baseUrl}/cards`, {
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
             }
         })
         .then(this._checkResponse)
@@ -68,7 +68,7 @@ class Api {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
                 name,
