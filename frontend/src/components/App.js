@@ -84,7 +84,7 @@ function App() {
 
   //Удаление
   function handleCardDelete(card) {
-    api.deleteCard(card._id)
+    api.deleteCard(card._id, localStorage.jwt)
     .then(() => {
       setCards((cards) => cards.filter((item) => item._id !== card._id));
     })
