@@ -20,7 +20,7 @@ module.exports.addCard = (req, res, next) => {
   Card.create({ name, link, owner })
     .then((card) => {
       res.send({
-        data: card,
+        card,
       });
     })
     .catch((err) => {
