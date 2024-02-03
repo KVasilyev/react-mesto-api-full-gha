@@ -5,7 +5,7 @@ import { currentUserContext } from '../context/CurrentUserContext.js';
 function Card(props) { 
 
 
-  console.log(props.card);
+  console.log(props.card.likes);
   //Подписываемся на контекст
   const userContext = React.useContext(currentUserContext);
 
