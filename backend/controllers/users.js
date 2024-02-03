@@ -71,12 +71,11 @@ module.exports.updateUser = (req, res, next) => {
     .orFail()
     .then((user) => {
       res.send({
-        user,
-        // name: user.name,
-        // about: user.about,
-        // avatar: user.avatar,
-        // _id: user._id,
-        // email: user.email,
+        name: user.name,
+        about: user.about,
+        avatar: user.avatar,
+        _id: user._id,
+        email: user.email,
       });
     })
     .catch((err) => {
@@ -95,7 +94,9 @@ module.exports.updateUserAvatar = (req, res, next) => {
   User.findByIdAndUpdate(owner, { avatar }, { new: true, runValidators: true, select: { avatar } })
     .orFail()
     .then((user) => {
-      res.send(user);
+      res.send({
+        avatar: user.avatar,
+      });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
