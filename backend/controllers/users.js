@@ -94,9 +94,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
   User.findByIdAndUpdate(owner, { avatar }, { new: true, runValidators: true, select: { avatar } })
     .orFail()
     .then((user) => {
-      res.send({
-        avatar: user.avatar,
-      });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
