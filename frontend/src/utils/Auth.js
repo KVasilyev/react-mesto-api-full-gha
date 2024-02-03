@@ -13,7 +13,7 @@ class Auth {
 
     // Регистрация
     async register(password, email) {
-        return fetch(`${this._baseUrl}/signup`, {
+        return fetch(`${this._baseUrl}/sign-up`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ password, email })
@@ -23,7 +23,7 @@ class Auth {
 
     //Авторизация
     async authorize(password, email) {
-        return fetch(`${this._baseUrl}/signin`, {
+        return fetch(`${this._baseUrl}/sign-in`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ password, email })
