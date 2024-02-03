@@ -50,7 +50,6 @@ function App() {
     if(loggedIn) {
       api.getCards(localStorage.jwt)
         .then((cardsInfo) => {
-          console.log(cardsInfo.card);
           setCards(cardsInfo.card);
         })
         .catch((err) => {
@@ -63,6 +62,7 @@ function App() {
     if(loggedIn) {
       api.getMyInfo(localStorage.jwt)
       .then((res) => {  
+        console.log(res);
         setCurrentUser(res);
       })
       .catch((err) => {
