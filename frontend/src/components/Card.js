@@ -11,7 +11,7 @@ function Card(props) {
   
   const isLiked = props.card.likes.some((i) => {
     console.log(i);
-    i.owner === userContext._id;
+    //i.owner === userContext._id;
   });
   
   const cardLikeButton = `elements__button-like ${isLiked && 'elements__button-like_active'}`;
