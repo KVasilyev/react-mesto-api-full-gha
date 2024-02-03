@@ -1,7 +1,6 @@
 class Api {
     constructor(options) {  
         this._baseUrl = options.baseUrl;
-        this._headers = options.headers;
     }
     _checkResponse(result) {
         if (result.ok) {
@@ -12,19 +11,23 @@ class Api {
     }
 
     // Получаем информацию обо мне
-    getMyInfo() {
+    getMyInfo(token) {
         return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         })
         .then(this._checkResponse)
     }  
     
     // Устанавливаем информацию о себе на сервер
-    setMyInfo(data) {
+    setMyInfo(data, token) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
-            headers: this._headers
-            ,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
             body: JSON.stringify({
                 name: data.name,
                 about: data.about
@@ -34,11 +37,13 @@ class Api {
     }
 
     //Меняем аватар
-    setMyAvatar(data) {
+    setMyAvatar(data, token) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
-            headers: this._headers
-            ,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
             body: JSON.stringify({
                 avatar: data.avatar,
             })
@@ -48,18 +53,23 @@ class Api {
 
 
     // Получаем все карточки с сервера
-    getCards() {
+    getCards(token) {
         return fetch(`${this._baseUrl}/cards`, {
-            headers: this._headers
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
         })
         .then(this._checkResponse)
     }
 
     // Загружаем карточку на сервер
-    addCard({name, link}) {
+    addCard({name, link}, token) {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
             body: JSON.stringify({
                 name,
                 link
@@ -69,19 +79,23 @@ class Api {
     }
     
     // Удаление карточки с сервера
-    deleteCard(id) {
+    deleteCard(id, token) {
         return fetch(`${this._baseUrl}/cards/${id}`, {
             method: 'DELETE',
-            headers: this._headers,
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
         })
         .then(this._checkResponse)
     }
 
     //Лайки
-    likeToggle(card, isLike) {
+    likeToggle(card, isLike, token) {
         return fetch(`${this._baseUrl}/cards/${card}/likes`, {
             method: isLike ? 'DELETE' : 'PUT',
-            headers: this._headers
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            }
         })
         .then(this._checkResponse)
     }  
@@ -90,11 +104,7 @@ class Api {
 
 // API 
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-77',
-    headers: {
-      authorization: '9204a9cc-6a48-46ae-b1bd-54502917751b',
-      'Content-Type': 'application/json'
-    }
+    baseUrl: 'https://api.vasilyev.nomoredomainsmonster.ru',
 });
 
 export default api;
