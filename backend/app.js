@@ -8,6 +8,7 @@ const userRouter = require('./routes/users');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const cardRouter = require('./routes/cards');
+const NotFoundError = require('./errors/NotFoundError');
 
 const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
@@ -44,11 +45,9 @@ app.use('/cards', auth, cardRouter);
 
 app.use(errorLogger);
 
-//
-// app.use((req, res, next) => {
-//   next(new NotFoundError('Страница не найдена'));
-// });
-//
+app.use((req, res, next) => {
+  next(new NotFoundError('Страница не найдена'));
+});
 
 app.use(errors());
 
