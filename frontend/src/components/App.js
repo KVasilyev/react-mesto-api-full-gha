@@ -62,6 +62,7 @@ function App() {
     if(loggedIn) {
       api.getMyInfo(localStorage.jwt)
       .then((res) => {  
+        console.log(res);
         setEmail(res.email);
         setCurrentUser(res.user);
         
