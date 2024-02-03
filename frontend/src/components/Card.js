@@ -9,7 +9,8 @@ function Card(props) {
 
   const isOwn = userContext._id === props.card.owner;
   
-  const isLiked = props.card.card.likes.some(i => i === userContext._id);
+  const isLiked = props.card.likes.some(i => i === userContext._id);
+  
   const cardLikeButton = `elements__button-like ${isLiked && 'elements__button-like_active'}`;
 
   function handleClick() {
