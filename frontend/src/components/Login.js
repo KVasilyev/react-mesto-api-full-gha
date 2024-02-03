@@ -20,6 +20,7 @@ function Login(props) {
     function handleSubmit(e) {
         e.preventDefault();
         if(!email || !password) {
+            console.log('42342');
             return;
         }
         auth.authorize(password, email)
