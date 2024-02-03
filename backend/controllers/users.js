@@ -71,11 +71,12 @@ module.exports.updateUser = (req, res, next) => {
     .orFail()
     .then((user) => {
       res.send({
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-        _id: user._id,
-        email: user.email,
+        user,
+        // name: user.name,
+        // about: user.about,
+        // avatar: user.avatar,
+        // _id: user._id,
+        // email: user.email,
       });
     })
     .catch((err) => {
