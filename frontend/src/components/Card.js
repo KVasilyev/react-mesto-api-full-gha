@@ -8,15 +8,11 @@ function Card(props) {
   //Подписываемся на контекст
   const userContext = React.useContext(currentUserContext);
 
-  props.card.likes.some((i) => {
-    if(i === userContext._id) {
-      console.log(i);
-    }
-  });
-
   const isOwn = userContext._id === props.card.owner;
   
-  const isLiked = props.card.likes.some(i => i === userContext._id);
+  const isLiked = props.card.likes.some((i) => {
+    i === userContext._id;
+  });
   
   const cardLikeButton = `elements__button-like ${isLiked && 'elements__button-like_active'}`;
 
