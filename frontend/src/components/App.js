@@ -48,7 +48,7 @@ function App() {
 
   React.useEffect(() => {
     if(loggedIn) {
-      api.getCards(localStorage.jwt)
+      api.getCards()
         .then((cardsInfo) => {
           setCards({ cardsInfo });
         })
