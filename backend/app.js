@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { errors, celebrate, Joi } = require('celebrate');
@@ -9,6 +10,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const cardRouter = require('./routes/cards');
 const NotFoundError = require('./errors/NotFoundError');
+
+console.log(process.env.NODE_ENV);
 
 const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
