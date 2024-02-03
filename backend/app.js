@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const auth = require('./middlewares/auth');
 const userRouter = require('./routes/users');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const cardRouter = require('./routes/cards');
 const NotFoundError = require('./errors/NotFoundError');
