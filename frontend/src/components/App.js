@@ -73,7 +73,7 @@ function App() {
   //Лайки
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i === currentUser._id);
-    
+
     api.likeToggle(card._id, isLiked , localStorage.jwt)
     .then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -152,7 +152,7 @@ function App() {
     function handleAddPlaceSubmit(data) {
       api.addCard(data, localStorage.jwt)
       .then((res) => {
-        setCards([res, ...cards]);
+        setCards([res.card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
