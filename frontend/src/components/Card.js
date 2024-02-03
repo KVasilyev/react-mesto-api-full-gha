@@ -4,8 +4,9 @@ import { currentUserContext } from '../context/CurrentUserContext.js';
 
 function Card(props) { 
 
-
-  console.log(props.card.likes);
+  props.card.likes.some((i) => {
+    console.log(i);
+  });
   //Подписываемся на контекст
   const userContext = React.useContext(currentUserContext);
 
