@@ -124,7 +124,7 @@ function App() {
 
   // Меняем Имя и Обо мне
   function handleUpdateUser(data) {
-    api.setMyInfo(data)
+    api.setMyInfo(data, localStorage.jwt)
     .then((res) => {
       setCurrentUser(res);
       closeAllPopups();
@@ -136,7 +136,7 @@ function App() {
 
   // Меняем Аватар
   function handleUpdateAvatar(data) {
-    api.setMyAvatar(data)
+    api.setMyAvatar(data, localStorage.jwt)
     .then((res) => {
       setCurrentUser(res);
       closeAllPopups();
@@ -148,7 +148,7 @@ function App() {
 
   // Добавляем карточки
     function handleAddPlaceSubmit(data) {
-      api.addCard(data)
+      api.addCard(data, localStorage.jwt)
       .then((res) => {
         setCards([res, ...cards]);
         closeAllPopups();
