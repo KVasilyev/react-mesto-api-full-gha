@@ -62,8 +62,7 @@ function App() {
     if(loggedIn) {
       api.getMyInfo(localStorage.jwt)
       .then((res) => {  
-        console.log(res);
-        setCurrentUser(res);
+        setCurrentUser(res.user);
       })
       .catch((err) => {
         console.log(err);
