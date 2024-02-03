@@ -8,7 +8,6 @@ const userRouter = require('./routes/users');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const cardRouter = require('./routes/cards');
-const NotFoundError = require('./errors/NotFoundError');
 
 const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
