@@ -73,7 +73,7 @@ function App() {
   //Лайки
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.likeToggle(card._id, isLiked)
+    api.likeToggle(card._id, isLiked , localStorage.jwt)
     .then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
     })
