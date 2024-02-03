@@ -138,8 +138,8 @@ function App() {
   function handleUpdateAvatar(data) {
     api.setMyAvatar(data, localStorage.jwt)
     .then((res) => {
-      console.log(res);
-      setCurrentUser(res);
+      console.log(res.avatar);
+      setCurrentUser(res.avatar);
       closeAllPopups();
     })
     .catch((err) => {

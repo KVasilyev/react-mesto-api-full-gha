@@ -4,16 +4,6 @@ import { currentUserContext } from '../context/CurrentUserContext.js';
 
 function Card(props) { 
 
-  
-  //Подписываемся на контекст
-  const userContext = React.useContext(currentUserContext);
-
-  const isOwn = userContext._id === props.card.owner;
-  
-  const isLiked = props.card.some(i => i.likes === userContext._id);
-  
-  const cardLikeButton = `elements__button-like ${isLiked && 'elements__button-like_active'}`;
-
   function handleClick() {
     props.onCardClick(props.card);
   } 
@@ -25,8 +15,16 @@ function Card(props) {
   function handleDeleteClick() {
     props.onCardDelete(props.card);
   }
-
   
+  //Подписываемся на контекст
+  const userContext = React.useContext(currentUserContext);
+
+  const isOwn = userContext._id === props.card.owner;
+  
+  const isLiked = props.card.likes.some(i => i === userContext._id);
+  
+  const cardLikeButton = `elements__button-like ${isLiked && 'elements__button-like_active'}`;
+
   return (
     <li className="elements__element"> 
       <img className="elements__image" src={props.card.link} alt={props.card.name} onClick={handleClick}/>
