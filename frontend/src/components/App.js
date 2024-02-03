@@ -62,6 +62,7 @@ function App() {
     if(loggedIn) {
       api.getMyInfo(localStorage.jwt)
       .then((res) => {  
+        setEmail(res.email);
         setCurrentUser(res.user);
         
       })
@@ -169,8 +170,6 @@ function App() {
       auth.checkToken(jwt)
       .then((res) => {
         if(res) {
-          console.log(res)
-          setEmail(res.email)
           setLoggedIn(true);
           navigate("/", {replace: true});
         }
