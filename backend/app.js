@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { errors, celebrate, Joi } = require('celebrate');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -11,6 +12,8 @@ const NotFoundError = require('./errors/NotFoundError');
 const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 const app = express();
+
+app.use(cors());
 
 mongoose.connect(MONGO_URL);
 
