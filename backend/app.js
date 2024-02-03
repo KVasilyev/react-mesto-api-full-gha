@@ -20,6 +20,8 @@ mongoose.connect(MONGO_URL);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use(requestLogger);
+
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -40,9 +42,11 @@ app.post('/signup', celebrate({
 app.use('/users', auth, userRouter);
 app.use('/cards', auth, cardRouter);
 
-app.use((req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
+app.use(errorLogger);
+
+// app.use((req, res, next) => {
+//   next(new NotFoundError('Страница не найдена'));
+// });
 
 app.use(errors());
 
