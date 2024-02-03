@@ -8,7 +8,7 @@ module.exports.getCardsList = (req, res, next) => {
   Card.find({})
     .then((card) => {
       res.status(200).send({
-        data: card,
+        card,
       });
     })
     .catch((err) => next(err));
