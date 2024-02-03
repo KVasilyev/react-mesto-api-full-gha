@@ -50,8 +50,8 @@ function App() {
     if(loggedIn) {
       api.getCards(localStorage.jwt)
         .then((cardsInfo) => {
-          console.log(cardsInfo);
-          setCards(cardsInfo);
+          console.log(cardsInfo.card);
+          setCards(cardsInfo.card);
         })
         .catch((err) => {
           console.log(err);
