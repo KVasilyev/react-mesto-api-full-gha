@@ -72,7 +72,9 @@ function App() {
 
   //Лайки
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i.owner === currentUser._id);
+    console(card);
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    console(isLiked);
     api.likeToggle(card._id, isLiked , localStorage.jwt)
     .then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -138,8 +140,8 @@ function App() {
   function handleUpdateAvatar(data) {
     api.setMyAvatar(data, localStorage.jwt)
     .then((res) => {
-      console.log(res.avatar);
-      setCurrentUser(res.avatar);
+      console.log(res);
+      setCurrentUser(res);
       closeAllPopups();
     })
     .catch((err) => {
