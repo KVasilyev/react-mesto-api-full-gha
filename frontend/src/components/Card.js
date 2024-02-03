@@ -4,13 +4,15 @@ import { currentUserContext } from '../context/CurrentUserContext.js';
 
 function Card(props) { 
 
+  
+  //Подписываемся на контекст
+  const userContext = React.useContext(currentUserContext);
+
   props.card.likes.some((i) => {
     if(i === userContext._id) {
       console.log(i);
     }
   });
-  //Подписываемся на контекст
-  const userContext = React.useContext(currentUserContext);
 
   const isOwn = userContext._id === props.card.owner;
   
