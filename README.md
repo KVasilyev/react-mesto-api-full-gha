@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.34.112
+IP 158.160.34.112
 
 Frontend https://vasilyev.nomoredomainsmonster.ru 
 
